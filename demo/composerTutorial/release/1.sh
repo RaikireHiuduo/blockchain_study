@@ -1,10 +1,11 @@
 #!/bin/sh
 
 # Clone
+cd ../
 git clone -b issue-6978 https://github.com/sstone1/fabric-samples.git
 
 # Get and update all the Hyperledger Fabric files. Eats a lot of bandwidth and space.
-cd ../fabric-samples
+cd ./fabric-samples
 curl -sSL https://goo.gl/byy2Qj | bash -s 1.0.5
 
 # Remove everything from the docker process, including stopped ones. 
@@ -13,6 +14,8 @@ docker ps -qa | xargs docker rm
 
 # Up
 cd ./first-network
+./byfn.sh -m down
+docker network prune
 ./byfn.sh -m generate
 ./byfn.sh -m up -s couchdb -a
 
