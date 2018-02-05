@@ -1,34 +1,19 @@
 #!/bin/sh
 
-# Clone
-# cd ../
-# git clone -b issue-6978 https://github.com/sstone1/fabric-samples.git
+# This assume fabric-install is done.
 
-# Get and update all the Hyperledger Fabric files. Eats a lot of bandwidth and space.
-# cd ./fabric-samples
-# curl -sSL https://goo.gl/byy2Qj | bash -s 1.0.5
-
-# Remove everything from the docker process, including stopped ones. 
-# docker ps -q | xargs docker stop
-# docker ps -qa | xargs docker rm
-
-# Up
-cd ../fabric-samples/first-network
-./byfn.sh -m down
-docker network prune
-./byfn.sh -m generate
-./byfn.sh -m up -s couchdb -a
-
-# Remove card
-composer card delete -n PeerAdmin@byfn-network-org1-only
-composer card delete -n PeerAdmin@byfn-network-org1
-composer card delete -n PeerAdmin@byfn-network-org2-only
-composer card delete -n PeerAdmin@byfn-network-org2
-composer card delete -n alice@tutorial-network
-composer card delete -n bob@tutorial-network
-composer card delete -n admin@tutorial-network
-composer card delete -n PeerAdmin@fabric-network
-
-# Return to main
-cd ../../release
-pwd
+echo "Doing 1"
+echo
+./1-cp.sh
+echo "Doing 2"
+echo
+./2-cp.sh
+echo "Doing 1 app"
+echo
+./1-app.sh
+echo "Doing 2 app"
+echo
+./2-app.sh
+echo "REST"
+echo
+composer-rest-server -c alice@tutorial-network -n never -w true
