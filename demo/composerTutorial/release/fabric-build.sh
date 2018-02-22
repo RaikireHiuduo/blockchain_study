@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Install and run byfn.sh lazily
+# Build up the network
 
 # Remove card
 composer card delete -n PeerAdmin@byfn-network-org1-only

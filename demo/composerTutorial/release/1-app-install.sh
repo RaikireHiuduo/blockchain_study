@@ -11,6 +11,6 @@ composer network start -c PeerAdmin@byfn-network-org1 -a ${RDIR}/tutorial-networ
 
 # Prepare call card
 cd ${BYFNDIR}
-composer card create -p ./1/connection-org1.json -u alice -n tutorial-network -c ./1/alice/admin-pub.pem -k ./1/alice/admin-priv.pem
-composer card import -f alice@tutorial-network.card
+composer card create -p ./1/connection-org1.json -u alice -n tutorial-network -c ./1/alice/admin-pub.pem -k ./1/alice/admin-priv.pem -f ./1/alice@tutorial-network.card
+composer card import -f ./1/alice@tutorial-network.card
 composer network ping -c alice@tutorial-network

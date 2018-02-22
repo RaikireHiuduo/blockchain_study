@@ -20,19 +20,9 @@ curl -sSL https://goo.gl/byy2Qj | bash -s 1.0.5
 # Copy the example connection profiles.
 cp -r ${RDIR}/files/* ./first-network
 
-# Remove card
-composer card delete -n PeerAdmin@byfn-network-org1-only
-composer card delete -n PeerAdmin@byfn-network-org1
-composer card delete -n PeerAdmin@byfn-network-org2-only
-composer card delete -n PeerAdmin@byfn-network-org2
-composer card delete -n alice@tutorial-network
-composer card delete -n bob@tutorial-network
-composer card delete -n admin@tutorial-network
-composer card delete -n PeerAdmin@fabric-network
+# remove the folder that treats it as a git repository.
+rm -r .git
 
-# Up
-cd ./first-network
-./byfn.sh -m down
-docker network prune
-./byfn.sh -m generate
-./byfn.sh -m up -s couchdb -a
+# Build the network
+cd ${RDIR}
+./fabric-build.sh

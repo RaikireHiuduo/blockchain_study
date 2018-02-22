@@ -12,12 +12,12 @@ PR="./crypto-config/peerOrganizations/org2.example.com/users/Admin@org2.example.
 
 # Create admin connection profile.
 cd ${BYFNDIR}
-composer card create -p ./2/connection-org2-only.json -u PeerAdmin -c ${PB} -k ${PR} -r PeerAdmin -r ChannelAdmin
-composer card create -p ./2/connection-org2.json -u PeerAdmin -c ${PB} -k ${PR} -r PeerAdmin -r ChannelAdmin
+composer card create -p ./2/connection-org2-only.json -u PeerAdmin -c ${PB} -k ${PR} -r PeerAdmin -r ChannelAdmin -f ./2/PeerAdmin@byfn-network-org2-only.card
+composer card create -p ./2/connection-org2.json -u PeerAdmin -c ${PB} -k ${PR} -r PeerAdmin -r ChannelAdmin -f ./2/PeerAdmin@byfn-network-org2.card
 
 # Import to wallet
-composer card import -f PeerAdmin@byfn-network-org2-only.card
-composer card import -f PeerAdmin@byfn-network-org2.card
+composer card import -f ./2/PeerAdmin@byfn-network-org2-only.card
+composer card import -f ./2/PeerAdmin@byfn-network-org2.card
 
 # install Hyperledger Composer runtime to the network
 composer runtime install -c PeerAdmin@byfn-network-org2-only -n tutorial-network

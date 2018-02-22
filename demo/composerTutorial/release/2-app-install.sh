@@ -11,6 +11,6 @@ cd ${RDIR}
 
 # Prepare call card
 cd ${BYFNDIR}
-composer card create -p ./2/connection-org2.json -u bob -n tutorial-network -c ./2/bob/admin-pub.pem -k ./2/bob/admin-priv.pem
-composer card import -f bob@tutorial-network.card
+composer card create -p ./2/connection-org2.json -u bob -n tutorial-network -c ./2/bob/admin-pub.pem -k ./2/bob/admin-priv.pem -f ./2/bob@tutorial-network.card
+composer card import -f ./2/bob@tutorial-network.card
 composer network ping -c bob@tutorial-network

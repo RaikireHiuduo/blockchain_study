@@ -14,6 +14,7 @@ echo
 echo "Doing 2 app"
 echo
 ./2-app.sh
-echo "REST"
+echo "REST with Alice information"
 echo
+cd ../fabric-samples/first-network
 composer-rest-server -c alice@tutorial-network -n never -w true
