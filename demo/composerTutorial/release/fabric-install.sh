@@ -18,10 +18,10 @@ curl -sSL https://goo.gl/byy2Qj | bash -s 1.0.5
 # docker ps -qa | xargs docker rm
 
 # Copy the example connection profiles.
-cp -r ${RDIR}/files/* ./first-network
+cp -rf ${RDIR}/files/* ./first-network
 
 # remove the folder that treats it as a git repository.
-rm -r .git
+rm -rf .git
 
 # Build the network
 cd ${RDIR}

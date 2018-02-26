@@ -6,7 +6,7 @@ cd ../fabric-samples/first-network
 BYFNDIR=`pwd`
 
 # Install Composer app to the network
-cd ${RDIR}
+cd ${BYFNDIR}
 # composer network start -c PeerAdmin@byfn-network-org2 -a tutorial-network@0.0.1.bna -o endorsementPolicyFile=${BYFNDIR}/endorse/endorsement-policy.json -A alice -C ${BYFNDIR}/1/alice/admin-pub.pem -A bob -C ${BYFNDIR}/2/bob/admin-pub.pem
 
 # Prepare call card

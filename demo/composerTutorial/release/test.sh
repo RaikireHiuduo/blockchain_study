@@ -10,11 +10,10 @@ echo
 ./2-cp.sh
 echo "Doing 1 app"
 echo
-./1-app.sh
+./1-app-install.sh
 echo "Doing 2 app"
 echo
-./2-app.sh
-echo "REST with Alice information"
-echo
-cd ../fabric-samples/first-network
-composer-rest-server -c alice@tutorial-network -n never -w true
+./2-app-install.sh
+
+# start
+./1-app-start.sh

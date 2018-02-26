@@ -16,7 +16,6 @@ chmod u+x fabric-install.sh
 chmod u+x fabric-start.sh
 chmod u+x fabric-stop.sh
 chmod u+x test.sh
-chmod u+x test2.sh
 
 # first-time
 ./fabric-install.sh
